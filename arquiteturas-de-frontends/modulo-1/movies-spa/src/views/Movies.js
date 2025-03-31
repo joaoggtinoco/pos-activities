@@ -1,7 +1,7 @@
-import styles from './Movies.Module.css'
+import styles from './Movies.module.css'
 
 import { useMovies } from "../hooks/useMovies";
-import { MovieItem } from '../components/MovieItem';
+import { MovieItem } from '../components/movieItem/MovieItem';
 
 export function Movies() {
   const movies = useMovies();
@@ -9,13 +9,14 @@ export function Movies() {
   return (
     <section className={styles.moviesContainer}>
       <h1>Filmes populares</h1>
-      <ul>
+
+      <div className={styles.moviesList}>
         {
-          movies.map((movie) =>
+          movies.map((movie) => (
             <MovieItem key={movie.id} movie={movie} />
-          )
+          ))
         }
-      </ul>
+      </div>
     </section>
   );
 }
